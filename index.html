@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stagiaris.ro - Coming Soon</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      background: #0d1117;
+      color: #e6e6e6;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
+    .logo img {
+      width: 120px;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 25px;
+      color: #cccccc;
+    }
+    form {
+      background: #161b22;
+      color: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.5);
+    }
+    input[type="email"] {
+      padding: 12px;
+      width: 70%;
+      border: 1px solid #30363d;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      background: #0d1117;
+      color: #e6e6e6;
+    }
+    input[type="email"]::placeholder {
+      color: #888;
+    }
+    button {
+      padding: 12px 28px;
+      background: #2f81f7;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #1f6feb;
+    }
+    .note {
+      font-size: 0.9em;
+      margin-top: 15px;
+      color: #aaaaaa;
+    }
+  </style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="images/logo-transparent.png" alt="Stagiaris Logo">
+    </div>
+    <h1>Peste 20 de ani de avocatură, redefiniți prin Inteligență Artificială- În curând</h1>
+    <p>
+          Ca avocat, activ din 2004, am înțeles în profunzime provocările profesiei noastre. 
+	  De aceea, am creat personal platforma AI pe care mi-am dorit-o mereu: un partener digital pentru analize inteligente, 
+	  strategii predictive și asistență avansată în redactarea actelor. 
+	  Pregătiți-vă pentru o nouă eră a analizei, strategiei și redactării de acte, construită pe o fundație de expertiză autentică.  
+    </p>
+    <form action="https://YOUR_MAILCHIMP_URL" method="POST">
+      <input type="email" name="EMAIL" placeholder="Adresa ta de email" required>
+      <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+      <br>
+      <button type="submit">Înscrie-te în Beta</button>
+    </form>
+    <p class="note">Primești invitația de testare imediat ce lansăm MVP-ul.</p>
+  </div>
+</body>
+</html>
