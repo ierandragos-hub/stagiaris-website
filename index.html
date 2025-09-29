@@ -10,31 +10,42 @@
       margin: 0;
       background: #0d1117;
       color: #e6e6e6;
-      text-align: center;
       padding: 40px 20px;
     }
+
     .container {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 20px;
     }
-    .logo {
-      margin-bottom: 20px;
+
+    /* HEADER: logo + titlu pe orizontală */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      margin-bottom: 30px;
+      text-align: left;
     }
-    .logo img {
-      width: 480px;
+
+    .header .logo img {
+      width: 120px; /* logo mai mic pentru layout pe orizontală */
     }
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 15px;
+
+    .header h1 {
+      font-size: 1.8em;
       color: #ffffff;
+      margin: 0;
     }
+
     p {
       font-size: 1.1em;
       margin-bottom: 25px;
       color: #cccccc;
     }
 
+    /* BENEFITS */
     .benefits {
       text-align: left;
       background: #161b22;
@@ -43,22 +54,26 @@
       margin: 30px auto;
       max-width: 500px;
     }
+
     .benefits h2 {
       font-size: 1.4em;
       color: #ffffff;
       margin-bottom: 15px;
       text-align: center;
     }
+
     .benefits ul {
       list-style: none;
       padding: 0;
     }
+
     .benefits li {
       margin-bottom: 10px;
       font-size: 1.05em;
       color: #cccccc;
     }
 
+    /* SOCIAL PROOF */
     .social-proof {
       background: linear-gradient(135deg, #1e3a5f 0%, #2f81f7 100%);
       padding: 15px 25px;
@@ -66,7 +81,9 @@
       margin: 25px auto;
       max-width: 400px;
       box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3);
+      text-align: center;
     }
+
     .social-proof .number {
       font-size: 2.5em;
       font-weight: bold;
@@ -74,19 +91,23 @@
       margin: 0;
       line-height: 1;
     }
+
     .social-proof .text {
       font-size: 1em;
       color: #b8d4ff;
       margin: 5px 0 0 0;
     }
 
+    /* FORM */
     form {
       background: #161b22;
       color: white;
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0px 6px 18px rgba(0,0,0,0.5);
+      text-align: center;
     }
+
     input[type="email"] {
       padding: 12px;
       width: 70%;
@@ -96,9 +117,11 @@
       background: #0d1117;
       color: #e6e6e6;
     }
+
     input[type="email"]::placeholder {
       color: #888;
     }
+
     button {
       padding: 12px 28px;
       background: #2f81f7;
@@ -110,14 +133,17 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     button:hover {
       background: #1f6feb;
     }
+
     .note {
       font-size: 0.9em;
       margin-top: 15px;
       color: #aaaaaa;
     }
+
     .success-message {
       display: none;
       background: #0d5c2f;
@@ -128,28 +154,51 @@
       font-weight: bold;
     }
 
+    /* FOOTER GDPR */
     .footer-note {
       margin-top: 40px;
       font-size: 0.8em;
       color: #888;
       text-align: center;
     }
+
     .footer-note a {
       color: #2f81f7;
       text-decoration: none;
     }
+
     .footer-note a:hover {
       text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .header h1 {
+        font-size: 1.5em;
+      }
+      .header .logo img {
+        width: 140px;
+      }
     }
   </style>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <div class="container">
-    <div class="logo">
-      <img src="logo-transparent.png" alt="Stagiaris Logo">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo">
+        <img src="logo-transparent.png" alt="Stagiaris Logo">
+      </div>
+      <h1>Peste 20 de ani de avocatură, redefiniți prin Inteligență Artificială - În curând</h1>
     </div>
-    <h1>Peste 20 de ani de avocatură, redefiniți prin Inteligență Artificială - În curând</h1>
+
     <p>
       Ca avocat, activ din 2004, am înțeles în profunzime provocările profesiei noastre. 
       De aceea, am creat personal platforma AI pe care mi-am dorit-o mereu: un partener digital pentru analize inteligente, 
@@ -157,6 +206,7 @@
       Pregătiți-vă pentru o nouă eră a analizei, strategiei și redactării de acte, construită pe o fundație de expertiză autentică.  
     </p>
 
+    <!-- BENEFITS -->
     <div class="benefits">
       <h2>Beneficii clare ale platformei</h2>
       <ul>
@@ -168,11 +218,13 @@
       </ul>
     </div>
 
+    <!-- SOCIAL PROOF -->
     <div class="social-proof">
       <p class="number" id="subscriber-count">...</p>
       <p class="text">avocați înscriși pentru beta testing</p>
     </div>
 
+    <!-- FORM -->
     <form id="signup-form" action="https://stagiaris.us22.list-manage.com/subscribe/post-json?u=29c2427738242ff2a8dfda5a0&id=a0dfd9b96f&f_id=0081c2e1f0&c=?" method="GET">
       <input type="email" name="EMAIL" id="email-input" placeholder="Adresa ta de email" required>
       <div style="position: absolute; left: -5000px;" aria-hidden="true">
@@ -186,8 +238,10 @@
       </div>
     </form>
     <p class="note">Primești invitația de testare imediat ce lansăm MVP-ul.</p>
+
   </div>
 
+  <!-- FOOTER -->
   <footer class="footer-note">
     <p>
       🔒 Datele tale sunt protejate conform <a href="/politica-confidentialitate.html" target="_blank">GDPR și Politicii de Confidențialitate</a>. 
@@ -249,5 +303,3 @@
   </script>
 </body>
 </html>
-
-
