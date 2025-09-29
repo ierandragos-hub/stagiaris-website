@@ -22,7 +22,7 @@
       margin-bottom: 20px;
     }
     .logo img {
-      width: 480px;
+      width: 240px;
     }
     h1 {
       font-size: 2.2em;
@@ -34,6 +34,28 @@
       margin-bottom: 25px;
       color: #cccccc;
     }
+    
+    .social-proof {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2f81f7 100%);
+      padding: 15px 25px;
+      border-radius: 8px;
+      margin: 25px auto;
+      max-width: 400px;
+      box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3);
+    }
+    .social-proof .number {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #ffffff;
+      margin: 0;
+      line-height: 1;
+    }
+    .social-proof .text {
+      font-size: 1em;
+      color: #b8d4ff;
+      margin: 5px 0 0 0;
+    }
+    
     form {
       background: #161b22;
       color: white;
@@ -72,6 +94,15 @@
       margin-top: 15px;
       color: #aaaaaa;
     }
+    .success-message {
+      display: none;
+      background: #0d5c2f;
+      color: #7ee3a5;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
   </style>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -87,21 +118,81 @@
       strategii predictive și asistență avansată în redactarea actelor. 
       Pregătiți-vă pentru o nouă eră a analizei, strategiei și redactării de acte, construită pe o fundație de expertiză autentică.  
     </p>
-    <form action="https://stagiaris.us22.list-manage.com/subscribe/post?u=29c2427738242ff2a8dfda5a0&id=a0dfd9b96f&f_id=0081c2e1f0" method="POST">
-      <input type="email" name="EMAIL" placeholder="Adresa ta de email" required>
+    
+    <div class="social-proof">
+      <p class="number" id="subscriber-count">...</p>
+      <p class="text">avocați înscriși pentru beta testing</p>
+    </div>
+    
+    <form id="signup-form" action="https://stagiaris.us22.list-manage.com/subscribe/post-json?u=29c2427738242ff2a8dfda5a0&id=a0dfd9b96f&f_id=0081c2e1f0&c=?" method="GET">
+      <input type="email" name="EMAIL" id="email-input" placeholder="Adresa ta de email" required>
       
-      <!-- Anti-spam honeypot (ascuns) -->
       <div style="position: absolute; left: -5000px;" aria-hidden="true">
         <input type="text" name="b_29c2427738242ff2a8dfda5a0_a0dfd9b96f" tabindex="-1" value="">
       </div>
       
-      <div class="g-recaptcha" data-sitekey="6Lfr1dgrAAAAACEVdovbu7BA1hCmeXLG94bOCWQt"></div>
+      <div class="g-recaptcha" data-sitekey="6LfKytgrAAAAAAHEW1Wes2i0oeGDZcQsdLPBujyX"></div>
       <br>
       <button type="submit">Înscrie-te în Beta</button>
+      
+      <div class="success-message" id="success-message">
+        ✓ Mulțumim! Ai fost înscris cu succes. Vei primi invitația în curând!
+      </div>
     </form>
     <p class="note">Primești invitația de testare imediat ce lansăm MVP-ul.</p>
   </div>
+
+  <script>
+    async function loadSubscriberCount() {
+      try {
+        const response = await fetch('/.netlify/functions/get-subscriber-count');
+        const data = await response.json();
+        animateCounter(data.count);
+      } catch (error) {
+        console.error('Error loading count:', error);
+        document.getElementById('subscriber-count').textContent = '10+';
+      }
+    }
+
+    function animateCounter(target) {
+      const counter = document.getElementById('subscriber-count');
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          counter.textContent = target;
+          clearInterval(timer);
+        } else {
+          counter.textContent = Math.floor(current);
+        }
+      }, 30);
+    }
+
+    window.addEventListener('load', loadSubscriberCount);
+
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var email = document.getElementById('email-input').value;
+      var form = document.getElementById('signup-form');
+      var successMsg = document.getElementById('success-message');
+      
+      var recaptchaResponse = grecaptcha.getResponse();
+      if (recaptchaResponse.length === 0) {
+        alert('Te rugăm să completezi reCAPTCHA');
+        return;
+      }
+      
+      var script = document.createElement('script');
+      script.src = form.action + '&EMAIL=' + encodeURIComponent(email);
+      document.body.appendChild(script);
+      
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+      
+      setTimeout(loadSubscriberCount, 2000);
+    });
+  </script>
 </body>
 </html>
-
-
