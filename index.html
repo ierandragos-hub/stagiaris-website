@@ -29,58 +29,36 @@
       margin-bottom: 15px;
       color: #ffffff;
     }
-    .benefits {
-  text-align: left;
-  background: #161b22;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 30px auto;
-  max-width: 500px;
-}
-.benefits h2 {
-  font-size: 1.4em;
-  color: #ffffff;
-  margin-bottom: 15px;
-  text-align: center;
-}
-.benefits ul {
-  list-style: none;
-  padding: 0;
-}
-.benefits li {
-  margin-bottom: 10px;
-  font-size: 1.05em;
-  color: #cccccc;
-}
-
-.footer-note {
-  margin-top: 40px;
-  font-size: 0.8em;
-  color: #888;
-  text-align: center;
-}
-.footer-note a {
-  color: #2f81f7;
-  text-decoration: none;
-}
-.footer-note a:hover {
-  text-decoration: underline;
-}
     p {
       font-size: 1.1em;
       margin-bottom: 25px;
       color: #cccccc;
     }
-        <div class="benefits">
-      <h2>Beneficii clare ale platformei</h2>
-      <ul>
-        <li>🔍 Analiză automată a jurisprudenţei</li>
-        <li>📝 Drafturi de acte personalizate, în câteva secunde</li>
-        <li>📢 Alertare rapidă la modificări legislative</li>
-        <li>⚖️ Suport inteligent pentru strategii juridice</li>
-        <li>⏳ Economie de timp în redactare și cercetare</li>
-      </ul>
-    </div>
+
+    .benefits {
+      text-align: left;
+      background: #161b22;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px auto;
+      max-width: 500px;
+    }
+    .benefits h2 {
+      font-size: 1.4em;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .benefits ul {
+      list-style: none;
+      padding: 0;
+    }
+    .benefits li {
+      margin-bottom: 10px;
+      font-size: 1.05em;
+      color: #cccccc;
+    }
+
     .social-proof {
       background: linear-gradient(135deg, #1e3a5f 0%, #2f81f7 100%);
       padding: 15px 25px;
@@ -101,7 +79,7 @@
       color: #b8d4ff;
       margin: 5px 0 0 0;
     }
-    
+
     form {
       background: #161b22;
       color: white;
@@ -149,6 +127,20 @@
       margin-top: 15px;
       font-weight: bold;
     }
+
+    .footer-note {
+      margin-top: 40px;
+      font-size: 0.8em;
+      color: #888;
+      text-align: center;
+    }
+    .footer-note a {
+      color: #2f81f7;
+      text-decoration: none;
+    }
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
   </style>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -164,35 +156,45 @@
       strategii predictive și asistență avansată în redactarea actelor. 
       Pregătiți-vă pentru o nouă eră a analizei, strategiei și redactării de acte, construită pe o fundație de expertiză autentică.  
     </p>
-    
+
+    <div class="benefits">
+      <h2>Beneficii clare ale platformei</h2>
+      <ul>
+        <li>📂 Analiză rapidă a documentelor încărcate (PDF, DOCX, TXT) pentru extragerea informațiilor relevante</li>
+        <li>📝 Generare automată de drafturi și rapoarte juridice personalizate pe baza documentelor încărcate</li>
+        <li>📢 Alertare inteligentă la modificări legislative sau jurisprudențiale care afectează cazurile tale</li>
+        <li>⚖️ Recomandări strategice și sugestii pentru planificarea acțiunilor juridice</li>
+        <li>⏳ Reducere semnificativă a timpului de muncă: cercetare, redactare și analiza documentelor se realizează în câteva minute</li>
+      </ul>
+    </div>
+
     <div class="social-proof">
       <p class="number" id="subscriber-count">...</p>
       <p class="text">avocați înscriși pentru beta testing</p>
     </div>
-    
+
     <form id="signup-form" action="https://stagiaris.us22.list-manage.com/subscribe/post-json?u=29c2427738242ff2a8dfda5a0&id=a0dfd9b96f&f_id=0081c2e1f0&c=?" method="GET">
       <input type="email" name="EMAIL" id="email-input" placeholder="Adresa ta de email" required>
-      
       <div style="position: absolute; left: -5000px;" aria-hidden="true">
         <input type="text" name="b_29c2427738242ff2a8dfda5a0_a0dfd9b96f" tabindex="-1" value="">
       </div>
-      
       <div class="g-recaptcha" data-sitekey="6Lfr1dgrAAAAACEVdovbu7BA1hCmeXLG94bOCWQt"></div>
       <br>
       <button type="submit">Înscrie-te în Beta</button>
-      
       <div class="success-message" id="success-message">
         ✓ Mulțumim! Ai fost înscris cu succes. Vei primi invitația în curând!
       </div>
     </form>
     <p class="note">Primești invitația de testare imediat ce lansăm MVP-ul.</p>
   </div>
-    <footer class="footer-note">
-      <p>
-        🔒 Datele tale sunt protejate conform <a href="/politica-confidentialitate.html" target="_blank">GDPR și Politicii de Confidențialitate</a>. 
-        Confidențialitatea avocaților și a clienților este prioritatea noastră absolută.
-      </p>
-    </footer>
+
+  <footer class="footer-note">
+    <p>
+      🔒 Datele tale sunt protejate conform <a href="/politica-confidentialitate.html" target="_blank">GDPR și Politicii de Confidențialitate</a>. 
+      Confidențialitatea avocaților și a clienților este prioritatea noastră absolută.
+    </p>
+  </footer>
+
   <script>
     async function loadSubscriberCount() {
       try {
@@ -247,7 +249,3 @@
   </script>
 </body>
 </html>
-
-
-
-
