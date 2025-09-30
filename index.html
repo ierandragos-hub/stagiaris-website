@@ -1,130 +1,62 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stagiaris.ro - Coming Soon</title>
   <style>
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
-      background: #0d1117;
-      color: #e6e6e6;
-      padding: 40px 20px;
-    }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; margin: 0; background: #0d1117; color: #e6e6e6; padding: 40px 20px; }
     .container { max-width: 900px; margin: 0 auto; }
 
     /* HEADER */
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
+    .header { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
     .header .logo img { width: 160px; }
-    .header h1 { font-size: 2em; margin: 0; color: #fff; }
+    .header h1 { font-size: 2rem; margin: 0; color: #fff; }
+    .subtitle { margin: 4px 0 24px 0; color: #b8d4ff; font-size: 1rem; }
 
     /* INTRO */
-    .intro { font-size: 1.2em; line-height: 1.5; color: #ccc; }
+    .intro { font-size: 1.15rem; line-height: 1.6; color: #cccccc; background:#161b22; padding: 18px 20px; border-radius: 12px; }
 
     /* DIFFERENTIATOR */
-    .differentiator {
-      background: #161b22;
-      border-radius: 12px;
-      padding: 25px;
-      margin: 40px 0;
-    }
+    .differentiator { background: #161b22; border-radius: 12px; padding: 25px; margin: 40px 0; }
     .differentiator h2 { text-align: center; margin-bottom: 20px; }
-    .compare {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .compare div {
-      background: #0d1117;
-      padding: 20px;
-      border-radius: 10px;
-    }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .compare .card { background: #0d1117; padding: 20px; border-radius: 10px; }
     .compare h3 { margin-top: 0; color: #2f81f7; }
+    .compare ul { margin: 0; padding-left: 18px; color: #cccccc; }
 
     /* WORKFLOW */
     .workflow { margin: 50px 0; }
     .workflow h2 { text-align: center; margin-bottom: 30px; }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 20px;
-    }
-    .step {
-      background: #161b22;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .step span {
-      display: inline-block;
-      width: 40px; height: 40px;
-      line-height: 40px;
-      background: #2f81f7;
-      border-radius: 50%;
-      color: #fff;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .step { background: #161b22; padding: 20px; border-radius: 10px; text-align: center; }
+    .step span { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: #2f81f7; border-radius: 50%; color: #fff; font-weight: 700; margin-bottom: 10px; }
 
     /* SOCIAL PROOF */
-    .social-proof {
-      background: linear-gradient(135deg, #1e3a5f 0%, #2f81f7 100%);
-      padding: 15px 25px;
-      border-radius: 8px;
-      margin: 25px auto;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3);
-    }
-    .social-proof .number { font-size: 2.5em; font-weight: bold; color: #fff; }
-    .social-proof .text { color: #b8d4ff; }
+    .social-proof { background: linear-gradient(135deg, #1e3a5f 0%, #2f81f7 100%); padding: 15px 25px; border-radius: 8px; margin: 25px auto; max-width: 420px; text-align: center; box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3); }
+    .social-proof .number { font-size: 2.5em; font-weight: bold; color: #fff; margin: 0; }
+    .social-proof .text { color: #b8d4ff; margin: 6px 0 0 0; }
 
     /* FORM */
-    form {
-      background: #161b22;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    input[type="email"] {
-      padding: 12px;
-      width: 70%;
-      border: 1px solid #30363d;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      background: #0d1117;
-      color: #e6e6e6;
-    }
-    button {
-      padding: 12px 28px;
-      background: #2f81f7;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1em;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+    form { background: #161b22; padding: 25px; border-radius: 10px; text-align: center; }
+    input[type="email"] { padding: 12px; width: 70%; border: 1px solid #30363d; border-radius: 6px; margin-bottom: 15px; background: #0d1117; color: #e6e6e6; }
+    input[type="email"]::placeholder { color: #888; }
+    button { padding: 12px 28px; background: #2f81f7; color: #fff; border: none; border-radius: 6px; font-size: 1em; font-weight: 700; cursor: pointer; transition: background .3s; }
     button:hover { background: #1f6feb; }
-    .note { font-size: 0.9em; margin-top: 15px; color: #aaa; }
-    .success-message {
-      display: none; margin-top: 15px;
-      padding: 15px; background: #0d5c2f;
-      color: #7ee3a5; border-radius: 6px; font-weight: bold;
-    }
+    .note { font-size: .9em; margin-top: 15px; color: #aaaaaa; text-align:center; }
+    .success-message { display: none; margin-top: 15px; padding: 15px; background: #0d5c2f; color: #7ee3a5; border-radius: 6px; font-weight: 700; }
+
+    /* ABOUT FOUNDER */
+    .about-founder { background:#161b22; padding: 20px; border-radius: 10px; margin-top: 40px; }
+    .about-founder h2 { margin-top: 0; }
 
     /* FOOTER */
-    .footer-note { margin-top: 40px; font-size: 0.8em; color: #888; text-align: center; }
-    .footer-note a { color: #2f81f7; }
+    .footer-note { margin-top: 40px; font-size: .85em; color: #888; text-align: center; }
+    .footer-note a { color: #2f81f7; text-decoration: none; }
+    .footer-note a:hover { text-decoration: underline; }
 
-    @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+    /* RESPONSIVE */
+    @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: center; text-align: center; } .header .logo img { width: 140px; } }
   </style>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -133,50 +65,55 @@
 
     <!-- HEADER -->
     <div class="header">
-      <div class="logo"><img src="logo-transparent.png" alt="Stagiaris Logo"></div>
-      <h1>Stagiaris – Asistentul juridic inteligent. În curând.</h1>
+      <div class="logo"><img src="logo-transparent.png" alt="Stagiaris Logo" /></div>
+      <div>
+        <h1>Stagiaris – Asistentul juridic inteligent. În curând.</h1>
+        <p class="subtitle">Creat de un <strong>avocat activ din 2004</strong>, cu peste 20 de ani de experiență în drept.</p>
+      </div>
     </div>
 
     <!-- INTRO -->
     <p class="intro">
-      Stagiaris este primul AI juridic din România construit pentru <strong>avocați, juriști și profesioniști ai dreptului</strong>. 
-      Nu doar că răspunde la întrebări, ci analizează spete, construiește rapoarte juridice și redactează acte oficiale – complet, verificabil și conform cu legislația românească.
+      Sunt avocat din 2004 și am văzut zilnic cât timp se pierde în căutări, analize și redactări repetitive. De aceea am creat Stagiaris –
+      primul AI juridic din România construit pentru <strong>avocați, juriști și profesioniști ai dreptului</strong>.
+      Stagiaris nu doar răspunde la întrebări: <strong>analizează spete, creează rapoarte juridice extinse</strong> cu trimiteri la lege și jurisprudență și <strong>redactează automat actele</strong> recomandate – rapid, verificabil și conform cu legislația românească.
     </p>
 
     <!-- DIFFERENTIATOR -->
     <div class="differentiator">
       <h2>De ce Stagiaris și nu un AI generalist?</h2>
       <div class="compare">
-        <div>
+        <div class="card">
           <h3>AI generalist</h3>
           <ul>
-            <li>Răspunsuri conversaționale, dar fără surse clare</li>
-            <li>Nu garantează actualizarea legislației</li>
-            <li>Fără trasabilitate sau redactare de acte</li>
+            <li>Răspunsuri conversaționale, fără surse exacte</li>
+            <li>Actualizare incertă a legislației</li>
+            <li>Fără workflow juridic complet sau redactare de acte</li>
+            <li>Confidențialitate și GDPR gestionate de furnizor extern</li>
           </ul>
         </div>
-        <div>
+        <div class="card">
           <h3>Stagiaris</h3>
           <ul>
             <li>Conectat la legislație și jurisprudență din România</li>
-            <li>Actualizări zilnice, prospețime garantată</li>
-            <li>Raport juridic complet + acte redactate automat</li>
-            <li>Conformitate GDPR pentru documente confidențiale</li>
+            <li>Actualizări incrementale și merge săptămânal (prospețime)</li>
+            <li>Raport juridic complet + <em>„Redactează actele”</em> dintr-un click</li>
+            <li>Conformitate GDPR & rulare în infrastructură controlată</li>
           </ul>
         </div>
       </div>
     </div>
 
     <!-- WORKFLOW -->
-    <div class="workflow">
+    <section class="workflow" aria-label="Workflow Stagiaris">
       <h2>Workflow-ul Stagiaris</h2>
       <div class="steps">
-        <div class="step"><span>1</span><p>Încarci documentele și descrii starea de fapt</p></div>
+        <div class="step"><span>1</span><p>Încarci documentele spetei și/sau descrii starea de fapt</p></div>
         <div class="step"><span>2</span><p>Apeși <strong>„Creează raport juridic”</strong></p></div>
-        <div class="step"><span>3</span><p>Primești raport complet: lege, jurisprudență, strategie, riscuri</p></div>
-        <div class="step"><span>4</span><p>Apeși <strong>„Redactează actele”</strong> și primești documentele oficiale</p></div>
+        <div class="step"><span>3</span><p>Primești raport extins: texte legale, jurisprudență, strategie, riscuri, probe</p></div>
+        <div class="step"><span>4</span><p>Apeși <strong>„Redactează actele”</strong> și obții documentele oficiale (cereri, notificări, contracte)</p></div>
       </div>
-    </div>
+    </section>
 
     <!-- SOCIAL PROOF -->
     <div class="social-proof">
@@ -184,24 +121,33 @@
       <p class="text">avocați înscriși pentru beta testing</p>
     </div>
 
-    <!-- FORM -->
+    <!-- FORM (păstrate: captcha, chei, contor) -->
     <form id="signup-form" action="https://stagiaris.us22.list-manage.com/subscribe/post-json?u=29c2427738242ff2a8dfda5a0&id=a0dfd9b96f&f_id=0081c2e1f0&c=?" method="GET">
-      <input type="email" name="EMAIL" id="email-input" placeholder="Adresa ta de email" required>
+      <input type="email" name="EMAIL" id="email-input" placeholder="Adresa ta de email" required />
       <div style="position: absolute; left: -5000px;" aria-hidden="true">
-        <input type="text" name="b_29c2427738242ff2a8dfda5a0_a0dfd9b96f" tabindex="-1" value="">
+        <input type="text" name="b_29c2427738242ff2a8dfda5a0_a0dfd9b96f" tabindex="-1" value="" />
       </div>
       <div class="g-recaptcha" data-sitekey="6Lfr1dgrAAAAACEVdovbu7BA1hCmeXLG94bOCWQt"></div>
-      <br>
+      <br />
       <button type="submit">Înscrie-te în Beta</button>
       <div class="success-message" id="success-message">✓ Mulțumim! Ai fost înscris cu succes.</div>
     </form>
     <p class="note">Primești invitația imediat ce lansăm MVP-ul.</p>
 
+    <!-- ABOUT FOUNDER -->
+    <div class="about-founder">
+      <h2>Despre fondator</h2>
+      <p>
+        Stagiaris a fost creat de <strong>un avocat activ din 2004</strong>. Platforma este rezultatul a peste 20 de ani de practică și a unei
+        înțelegeri directe a nevoilor profesiei: acuratețe, prospețime, trasabilitate și confidențialitate.
+      </p>
+    </div>
+
   </div>
 
   <!-- FOOTER -->
   <footer class="footer-note">
-    🔒 Datele tale sunt protejate conform <a href="/politica-confidentialitate.html" target="_blank">GDPR</a>. Confidențialitatea avocaților și a clienților este prioritatea noastră absolută.
+    🔒 Datele tale sunt protejate conform <a href="/politica-confidentialitate.html" target="_blank">GDPR și Politicii de Confidențialitate</a>. Confidențialitatea avocaților și a clienților este prioritatea noastră absolută.
   </footer>
 
   <script>
@@ -210,20 +156,23 @@
         const response = await fetch('/.netlify/functions/get-subscriber-count');
         const data = await response.json();
         animateCounter(data.count);
-      } catch {
+      } catch (error) {
         document.getElementById('subscriber-count').textContent = '10+';
       }
     }
+
     function animateCounter(target) {
       const counter = document.getElementById('subscriber-count');
-      let current = 0, increment = target / 50;
+      let current = 0; const steps = 50; const increment = (Number(target)||0) / steps;
       const timer = setInterval(() => {
         current += increment;
         if (current >= target) { counter.textContent = target; clearInterval(timer); }
         else { counter.textContent = Math.floor(current); }
       }, 30);
     }
+
     window.addEventListener('load', loadSubscriberCount);
+
     document.getElementById('signup-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var email = document.getElementById('email-input').value;
