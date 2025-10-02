@@ -2,198 +2,287 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stagiaris.ro - Coming Soon</title>
-    <style>
-    body { font-family: "Helvetica Neue", Arial, sans-serif; margin: 0; background: #0d1117; color: #e6e6e6; padding: 40px 20px; }
-    .container { max-width: 900px; margin: 0 auto; }
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stagiaris – AI juridic pentru profesioniști</title>
+
+  <!-- SEO & Sharing -->
+  <meta name="description" content="Stagiaris – Singurul AI juridic cu trasabilitate completă: lege și jurisprudență. Creat strict pentru avocați, juriști și practicieni în insolvență." />
+  <meta property="og:title" content="Stagiaris – Asistent juridic inteligent" />
+  <meta property="og:description" content="Analiză de spețe. Lege + jurisprudență. Redactare de acte – în minute, nu ore." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-stagiaris.png" />
+  <meta property="og:locale" content="ro_RO" />
+  <link rel="canonical" href="https://stagiaris.ro/">
+
+  <!-- Performance: conexiuni & font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="/logo-transparent.png" imagesrcset="/logo-transparent.png 1x" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#0d1117; --panel:#161b22; --ink:#e6e6e6; --muted:#9fb3d9;
+      --brand:#2f81f7; --brand-2:#1e3a5f; --ok:#7ee3a5; --ok-bg:#0d5c2f;
+      --border:#30363d; --shadow:0 6px 24px rgba(47,129,247,.18);
+      --radius:12px; --radius-sm:10px; --speed-fast:140ms; --speed-med:220ms;
+      --ease:cubic-bezier(.22,.61,.36,1);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width: 1080px; margin:0 auto; padding:40px 20px}
 
     /* HEADER */
-    .header { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
-    .header .logo img { width: 160px; }
-    .header h1 { font-size: 2rem; margin: 0; color: #fff; }
-    .subtitle { margin: 4px 0 24px 0; color: #b8d4ff; font-size: 1rem; }
+    header{ text-align:center; margin-bottom: 50px }
+    header h1{ font-size:clamp(1.8rem, 2.4vw + 1rem, 2.6rem); color:#fff; margin:0 0 10px }
+    header p{ font-size:1.1rem; color:#8ab4ff; margin:0 }
 
-    /* INTRO */
-    .intro { font-size: 1.15rem; line-height: 1.6; color: #cccccc; background:#161b22; padding: 18px 20px; border-radius: 12px; }
+    /* HERO */
+    .hero{ background:var(--panel); border-radius:var(--radius); padding:28px; margin-bottom: 38px; text-align:center; line-height:1.65 }
+
+    /* SEGMENTARE */
+    .segments{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:14px 0 38px}
+    .badge{
+      display:inline-block; padding:6px 10px; border-radius:9999px;
+      background:linear-gradient(135deg, var(--brand-2) 0%, var(--brand) 100%);
+      color:#fff; font-weight:700; font-size:.86rem;
+      box-shadow:0 2px 10px rgba(47,129,247,.25)
+    }
+
+    /* BENEFITS */
+    .benefits{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin: 46px 0 }
+    .benefit{ background:var(--panel); border-radius:var(--radius); padding:20px; border:1px solid #1c2330;
+      transition: transform var(--speed-fast) var(--ease), box-shadow var(--speed-fast) var(--ease), border-color var(--speed-fast) var(--ease);
+      transform: translateZ(0) }
+    .benefit:hover{ transform: translateY(-3px); box-shadow:var(--shadow); border-color: rgba(47,129,247,.35) }
+    .benefit h3{ margin:0 0 6px; color:var(--brand) }
 
     /* DIFFERENTIATOR */
-    .differentiator { background: #161b22; border-radius: 12px; padding: 25px; margin: 40px 0; }
-    .differentiator h2 { text-align: center; margin-bottom: 20px; }
-    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .compare .card { background: #0d1117; padding: 20px; border-radius: 10px; }
-    .compare h3 { margin-top: 0; color: #2f81f7; }
-    .compare ul { margin: 0; padding-left: 18px; color: #cccccc; }
+    .differentiator{
+      background:linear-gradient(135deg, var(--brand-2) 0%, var(--brand) 100%);
+      padding: 32px; border-radius: var(--radius); color:#fff; text-align:center; margin: 18px 0 44px;
+      box-shadow: var(--shadow)
+    }
+    .differentiator h2{ margin:0 0 8px }
+    .differentiator p{ margin:0 }
 
     /* WORKFLOW */
-    .workflow { margin: 50px 0; }
-    .workflow h2 { text-align: center; margin-bottom: 30px; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .step { background: #161b22; padding: 20px; border-radius: 10px; text-align: center; }
-    .step span { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: #2f81f7; border-radius: 50%; color: #fff; font-weight: 700; margin-bottom: 10px; }
+    .workflow{ margin:44px 0 }
+    .workflow h2{ text-align:center; margin:0 0 18px }
+    .steps{ display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap:18px }
+    .step{ background:var(--panel); padding:20px; border-radius:var(--radius-sm); text-align:center; border:1px solid #1c2330;
+      opacity:0; transform: translateY(10px); will-change: transform, opacity }
+    .step.reveal{ opacity:1; transform: translateY(0); transition: opacity var(--speed-med) var(--ease), transform var(--speed-med) var(--ease) }
+    .step span{
+      display:inline-grid; place-items:center; width:40px; height:40px; border-radius:50%;
+      background:var(--brand); color:#fff; font-weight:800; margin-bottom:10px
+    }
 
     /* SOCIAL PROOF */
-    .social-proof { background: linear-gradient(135deg, #1e3a5f 0%, #2f81f7 100%); padding: 15px 25px; border-radius: 8px; margin: 25px auto; max-width: 420px; text-align: center; box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3); }
-    .social-proof .number { font-size: 2.5em; font-weight: bold; color: #fff; margin: 0; }
-    .social-proof .text { color: #b8d4ff; margin: 6px 0 0 0; }
+    .social-proof{ background:var(--panel); padding:20px; border-radius:var(--radius); text-align:center; margin: 34px auto; max-width:420px; border:1px solid #1c2330 }
+    .number{ font-size:2.4rem; font-weight:800; color:var(--brand); margin:0; min-height:3rem }
+    .number.skeleton{
+      display:inline-block; width:120px; height:36px; border-radius:6px;
+      background:linear-gradient(90deg, rgba(255,255,255,.2), rgba(255,255,255,.35), rgba(255,255,255,.2));
+      background-size:200% 100%; animation: shimmer 1.1s infinite linear
+    }
+    .social-proof .text{ color:#b8d4ff; margin:.35rem 0 0 }
+    @keyframes shimmer{ 0%{background-position:0 0} 100%{background-position:200% 0} }
 
     /* FORM */
-    form { background: #161b22; padding: 25px; border-radius: 10px; text-align: center; }
-    input[type="email"] { padding: 12px; width: 70%; border: 1px solid #30363d; border-radius: 6px; margin-bottom: 15px; background: #0d1117; color: #e6e6e6; }
-    input[type="email"]::placeholder { color: #888; }
-    button { padding: 12px 28px; background: #2f81f7; color: #fff; border: none; border-radius: 6px; font-size: 1em; font-weight: 700; cursor: pointer; transition: background .3s; }
-    button:hover { background: #1f6feb; }
-    .note { font-size: .9em; margin-top: 15px; color: #aaaaaa; text-align:center; }
-    .success-message { display: none; margin-top: 15px; padding: 15px; background: #0d5c2f; color: #7ee3a5; border-radius: 6px; font-weight: 700; }
+    form.panel{ background:var(--panel); border-radius:var(--radius); padding:22px; text-align:center; border:1px solid #1c2330 }
+    input[type="email"]{
+      padding:12px; width:min(700px,100%); border:1px solid var(--border); border-radius:6px;
+      margin-bottom:12px; background:var(--bg); color:var(--ink);
+      transition: border-color var(--speed-fast) var(--ease), box-shadow var(--speed-fast) var(--ease)
+    }
+    input[type="email"]::placeholder{ color:#8792a6 }
+    input[type="email"]:focus{ outline:none; border-color:rgba(47,129,247,.6); box-shadow:0 0 0 3px rgba(47,129,247,.25) }
+    .btn{
+      padding:12px 28px; background:var(--brand); color:#fff; border:0; border-radius:8px; font-size:1rem; font-weight:800;
+      cursor:pointer; transition: transform var(--speed-fast) var(--ease), background var(--speed-fast) var(--ease), box-shadow var(--speed-fast) var(--ease);
+      box-shadow: 0 6px 14px rgba(47,129,247,.25); will-change: transform
+    }
+    .btn:hover{ background:#1f6feb; transform: translateY(-1px) }
+    .btn:active{ transform: translateY(0) scale(.98) }
+    .note{ font-size:.92rem; margin-top:10px; color:#aab4c6; text-align:center }
+    .success-message{ display:none; margin-top:12px; padding:14px; background:var(--ok-bg); color:var(--ok); border-radius:6px; font-weight:700 }
 
-    /* ABOUT FOUNDER */
-    .about-founder { background:#161b22; padding: 20px; border-radius: 10px; margin-top: 40px; }
-    .about-founder h2 { margin-top: 0; }
+    /* ABOUT */
+    .about{ background:var(--panel); border-radius:var(--radius); padding:22px; border:1px solid #1c2330 }
+    .about h2{ margin:0 0 8px }
 
     /* FOOTER */
-    .footer-note { margin-top: 40px; font-size: .85em; color: #888; text-align: center; }
-    .footer-note a { color: #2f81f7; text-decoration: none; }
-    .footer-note a:hover { text-decoration: underline; }
+    footer{ margin:40px auto 24px; font-size:.9rem; color:#9aa3b2; text-align:center; max-width:1080px }
+    footer a{ color:var(--brand); text-decoration:none }
+    footer a:hover{ text-decoration:underline }
 
-    /* RESPONSIVE */
-    @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: center; text-align: center; } .header .logo img { width: 140px; } }
-  .micro-badge{display:inline-block;margin:6px auto 22px auto;padding:6px 12px;border-radius:999px;background:linear-gradient(135deg,#1e3a5f 0%,#2f81f7 100%);box-shadow:0 2px 10px rgba(47,129,247,.25);font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.2px}
-.speed-note{margin:.35rem 0 0 0;font-size:.95rem;color:#8ab4ff}
+    /* Responsive */
+    @media (max-width: 760px){
+      .container{ padding:28px 16px }
+      header{ margin-bottom:34px }
+      .benefits{ gap:14px }
+    }
 
-</style>
+    /* Respectă preferința „reduce motion” */
+    @media (prefers-reduced-motion: reduce){
+      .benefit, .step.reveal, .btn, input[type="email"]{ transition:none !important }
+      .step{ opacity:1; transform:none }
+      .number.skeleton{ animation:none }
+    }
+  </style>
+
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <div class="container">
-
+  <main class="container" id="top" aria-label="Stagiaris – Pagina principală">
     <!-- HEADER -->
-    <div class="header">
-      <div class="logo"><img src="logo-transparent.png" alt="Stagiaris Logo" /></div>
-      <div>
-        <h1>Stagiaris – Asistentul juridic inteligent. În curând.</h1>
-        <p class="subtitle">Creat de un <strong>avocat activ din 2004</strong>, cu peste 20 de ani de experiență în drept.</p>
-      </div>
+    <header role="banner">
+      <h1>Stagiaris – Asistentul juridic inteligent</h1>
+      <p><em>”Din 2004 în sala de judecată. Acum, experiența mea devine AI care lucrează pentru tine.”</em></p>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Introducere">
+      Stagiaris este primul instrument de muncă juridică bazat pe AI, creat strict pentru
+      <strong>avocați</strong>, <strong>juriști</strong> și <strong>practicieni în insolvență</strong>.
+      Nu e un chatbot generic, ci un sistem construit să ofere <strong>analiză profundă</strong>,
+      <strong>rapoarte complete</strong> și <strong>documente juridice redactate</strong> – rapid, verificabil și conform legislației românești.
+    </section>
+
+    <!-- SEGMENTARE -->
+    <div class="segments" aria-label="Cui se adresează">
+      <span class="badge">Avocați</span>
+      <span class="badge">Juriști</span>
+      <span class="badge">Practicieni în insolvență</span>
     </div>
 
-    <!-- INTRO -->
-    <p class="intro">
-      Sunt avocat din 2004 și am văzut zilnic cât timp se pierde în căutări, analize și redactări repetitive. De aceea am creat Stagiaris –
-      primul AI juridic din România construit pentru <strong>avocați, juriști și profesioniști ai dreptului</strong>.
-      Stagiaris nu doar răspunde la întrebări: <strong>analizează spete, creează rapoarte juridice extinse</strong> cu trimiteri la lege și jurisprudență și <strong>redactează automat actele</strong> recomandate – rapid, verificabil și conform cu legislația românească.
-    </p>
+    <!-- BENEFICII DIRECTE -->
+    <section class="benefits" aria-label="Beneficii directe">
+      <article class="benefit">
+        <h3>⏱ Economie de timp</h3>
+        <p>Ore de muncă transformate în minute, cu fluxuri optimizate pentru profesioniștii dreptului.</p>
+      </article>
+      <article class="benefit">
+        <h3>📚 Trasabilitate completă</h3>
+        <p>Fiecare răspuns include trimiteri la lege și jurisprudență pentru verificabilitate deplină.</p>
+      </article>
+      <article class="benefit">
+        <h3>🔒 Confidențialitate</h3>
+        <p>Infrastructură dedicată în România, conform GDPR; datele tale rămân sub controlul tău.</p>
+      </article>
+      <article class="benefit">
+        <h3>⚖️ Construit pentru profesioniști</h3>
+        <p>De avocați, pentru avocați: adaptat nevoilor reale din instanță și din consultanță.</p>
+      </article>
+    </section>
 
     <!-- DIFFERENTIATOR -->
-    <div class="differentiator">
-      <h2>De ce Stagiaris și nu un AI generalist?</h2>
-      <div class="compare">
-        <div class="card">
-          <h3>Stagiaris</h3>
-          <p class="speed-note">De la căutare la document final: în <strong>minute</strong>, nu ore.</p>
-          <ul>
-            <li>Conectat la legislație și jurisprudență din România</li>
-            <li>Actualizări incrementale săptămânal (actualitate)</li>
-            <li>Raport juridic complet + <em>„Redactează actele”</em> dintr-un click</li>
-            <li>Conformitate GDPR & rulare în infrastructură controlată</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>AI generalist (Chatgpt etc.)</h3>
-          <ul>
-            <li>Răspunsuri conversaționale, fără surse exacte</li>
-            <li>Actualizare incertă a legislației</li>
-            <li>Fără workflow juridic complet sau redactare de acte</li>
-            <li>Confidențialitate și GDPR gestionate de furnizor extern</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <section class="differentiator" aria-label="Diferențiator">
+      <h2>Stagiaris - singurul AI juridic cu trasabilitate completa</h2>
+      <p>Lege + jurisprudență, actualizări săptămânale, redactare automată a actelor juridice.</p>
+    </section>
 
     <!-- WORKFLOW -->
-    <section class="workflow" aria-label="Workflow Stagiaris">
-      <div class="micro-badge" aria-label="Viteză reală">⚡ Ore → Minute</div>
-<div class="steps">
-        <div class="step"><span>1</span><p>Încarci documentele spetei și/sau descrii starea de fapt</p></div>
+    <section class="workflow" aria-label="Workflow">
+      <h2>Cum funcționează</h2>
+      <div class="steps" id="steps">
+        <div class="step"><span>1</span><p>Încarci documentele speței și/sau descrii starea de fapt</p></div>
         <div class="step"><span>2</span><p>Apeși <strong>„Creează raport juridic”</strong></p></div>
-        <div class="step"><span>3</span><p>Primești raport extins: texte legale, jurisprudență, strategie, riscuri, probe</p></div>
-        <div class="step"><span>4</span><p>Apeși <strong>„Redactează actele”</strong> și obții documentele oficiale (cereri, notificări, contracte)</p></div>
+        <div class="step"><span>3</span><p>Primești raport extins: lege, jurisprudență, strategie, riscuri</p></div>
+        <div class="step"><span>4</span><p>Generezi automat documentele juridice adaptate speței</p></div>
       </div>
     </section>
 
     <!-- SOCIAL PROOF -->
-    <div class="social-proof">
-      <p class="number" id="subscriber-count">...</p>
-      <p class="text">avocați înscriși pentru beta testing</p>
-    </div>
+    <section class="social-proof" aria-live="polite" aria-label="Înscrieri beta">
+      <p class="number skeleton" id="subscriber-count" aria-label="Număr profesioniști înscriși"></p>
+      <p class="text">profesioniști înscriși pentru beta testing</p>
+    </section>
 
-    <!-- FORM (păstrate: captcha, chei, contor) -->
-    <form id="signup-form" action="https://stagiaris.us22.list-manage.com/subscribe/post-json?u=29c2427738242ff2a8dfda5a0&id=a0dfd9b96f&f_id=0081c2e1f0&c=?" method="GET">
-      <input type="email" name="EMAIL" id="email-input" placeholder="Adresa ta de email" required />
-      <div style="position: absolute; left: -5000px;" aria-hidden="true">
-        <input type="text" name="b_29c2427738242ff2a8dfda5a0_a0dfd9b96f" tabindex="-1" value="" />
+    <!-- FORM -->
+    <form class="panel" id="signup-form" action="https://stagiaris.us22.list-manage.com/subscribe/post-json?u=29c2427738242ff2a8dfda5a0&id=a0dfd9b96f&f_id=0081c2e1f0&c=?" method="GET" novalidate>
+      <label for="email-input" class="visually-hidden">Adresa ta de email</label>
+      <input type="email" name="EMAIL" id="email-input" placeholder="Adresa ta de email" required inputmode="email" autocomplete="email" />
+      <!-- honeypot -->
+      <div style="position:absolute; left:-5000px" aria-hidden="true">
+        <input type="text" name="b_29c2427738242ff2a8dfda5a0_a0dfd9b96f" tabindex="-1" value="">
       </div>
-      <div class="g-recaptcha" data-sitekey="6Lfr1dgrAAAAACEVdovbu7BA1hCmeXLG94bOCWQt"></div>
-      <br />
-      <button type="submit">Înscrie-te în Beta</button>
-      <div class="success-message" id="success-message">✓ Mulțumim! Ai fost înscris cu succes.</div>
+      <!-- rezervă spațiu reCAPTCHA ca să eviți CLS -->
+      <div style="height:78px; display:grid; place-items:center; margin-top:8px">
+        <div class="g-recaptcha" data-sitekey="6Lfr1dgrAAAAACEVdovbu7BA1hCmeXLG94bOCWQt"></div>
+      </div>
+      <button type="submit" class="btn" aria-label="Înscrie-te în Beta">Înscrie-te în Beta</button>
+      <div class="success-message" id="success-message" role="status">✓ Mulțumim! Ai fost înscris cu succes.</div>
+      <p class="note">Primești invitația imediat ce lansăm MVP-ul.</p>
     </form>
-    <p class="note">Primești invitația imediat ce lansăm MVP-ul.</p>
 
-    <!-- ABOUT FOUNDER -->
-    <p>
-        Stagiaris a fost creat de <strong>un avocat activ din 2004</strong>. Platforma este rezultatul a peste 20 de ani de practică și a unei înțelegeri directe a nevoilor profesiei: acuratețe, prospețime, trasabilitate, confidențialitate — și <strong>viteză</strong>. Stagiaris comprimă ore în minute, crescând accelerat productivitatea și reducând efortul repetitiv, fără a sacrifica rigoarea juridică.
-      </p>
-    </div>
-
-  </div>
+    <!-- ABOUT -->
+    <section class="about" aria-label="Despre">
+      <h2>De ce am construit Stagiaris ?</h2>
+      <p><em>Sunt avocat din 2004. Am văzut zilnic cât timp se pierde în căutări, analize și redactări repetitive. Stagiaris aduce viteză, trasabilitate și rigoare: legislație și jurisprudență RO la zi, raport juridic explicat, redactare de acte – totul într-un flux clar, verificabil.</em></p>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="footer-note">
-    🔒 Datele tale sunt protejate conform <a href="/politica-confidentialitate.html" target="_blank">GDPR și Politicii de Confidențialitate</a>. Confidențialitatea avocaților și a clienților este prioritatea noastră absolută.
+  <footer>
+    🔒 Datele tale sunt protejate conform
+    <a href="/politica-confidentialitate.html" target="_blank" rel="noopener">GDPR și Politicii de Confidențialitate</a>.
+    Confidențialitatea avocaților și a clienților este prioritară.
   </footer>
 
   <script>
-    async function loadSubscriberCount() {
-      try {
-        const response = await fetch('/.netlify/functions/get-subscriber-count');
-        const data = await response.json();
+    // IntersectionObserver: apariție lină a pașilor (GPU-friendly)
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+      for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('reveal'); io.unobserve(e.target); } }
+    }, {rootMargin: '12% 0px'}) : null;
+    document.querySelectorAll('.step').forEach(el => io && io.observe(el));
+
+    // Contor cu skeleton + animatie numerică
+    const counterEl = document.getElementById('subscriber-count');
+    function showSkeleton(){ counterEl.classList.add('skeleton'); counterEl.textContent = ''; }
+    function hideSkeleton(){ counterEl.classList.remove('skeleton'); }
+    function animateCounter(target){
+      hideSkeleton();
+      const tgt = Number(target)||0;
+      const steps = 50; let cur = 0; const inc = tgt/steps;
+      const t = setInterval(()=>{ cur += inc; if(cur >= tgt){ counterEl.textContent = tgt; clearInterval(t); } else { counterEl.textContent = Math.floor(cur); } }, 30);
+    }
+    async function loadSubscriberCount(){
+      try{
+        showSkeleton();
+        const res = await fetch('/.netlify/functions/get-subscriber-count', {cache:'no-store'});
+        const data = await res.json();
         animateCounter(data.count);
-      } catch (error) {
-        document.getElementById('subscriber-count').textContent = '10+';
+      }catch(e){
+        hideSkeleton();
+        counterEl.textContent = '10+';
       }
     }
+    window.addEventListener('load', loadSubscriberCount, {once:true});
 
-    function animateCounter(target) {
-      const counter = document.getElementById('subscriber-count');
-      let current = 0; const steps = 50; const increment = (Number(target)||0) / steps;
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) { counter.textContent = target; clearInterval(timer); }
-        else { counter.textContent = Math.floor(current); }
-      }, 30);
-    }
-
-    window.addEventListener('load', loadSubscriberCount);
-
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
+    // Form (Mailchimp JSONP) + reCAPTCHA
+    document.getElementById('signup-form').addEventListener('submit', function(e){
       e.preventDefault();
-      var email = document.getElementById('email-input').value;
-      var form = document.getElementById('signup-form');
-      var successMsg = document.getElementById('success-message');
-      var recaptchaResponse = grecaptcha.getResponse();
-      if (recaptchaResponse.length === 0) { alert('Te rugăm să completezi reCAPTCHA'); return; }
-      var script = document.createElement('script');
-      script.src = form.action + '&EMAIL=' + encodeURIComponent(email);
+      const email = document.getElementById('email-input').value.trim();
+      const successMsg = document.getElementById('success-message');
+      if(!email){ return; }
+      if(typeof grecaptcha !== 'undefined'){
+        const token = grecaptcha.getResponse();
+        if(token.length === 0){ alert('Te rugăm să completezi reCAPTCHA'); return; }
+      }
+      const script = document.createElement('script');
+      script.src = this.action + '&EMAIL=' + encodeURIComponent(email);
       document.body.appendChild(script);
-      form.style.display = 'none';
+      this.style.display = 'none';
       successMsg.style.display = 'block';
-      setTimeout(loadSubscriberCount, 2000);
+      setTimeout(loadSubscriberCount, 1600);
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
