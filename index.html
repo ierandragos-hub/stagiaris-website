@@ -38,15 +38,16 @@
     .container{max-width: 1080px; margin:0 auto; padding:40px 20px}
 
     /* HEADER */
-    header{ text-align:center; margin-bottom: 50px }
-    header h1{ font-size:clamp(1.8rem, 2.4vw + 1rem, 2.6rem); color:#fff; margin:0 0 10px }
+    header{ display:flex; align-items:center; gap:16px; justify-content:center; flex-wrap:wrap; text-align:center; margin-bottom: 46px }
+    header .logo img{ width:160px; height:auto; display:block; transform:translateZ(0) }
+    header h1{ font-size:clamp(1.8rem, 2.4vw + 1rem, 2.6rem); color:#fff; margin:0 0 8px }
     header p{ font-size:1.1rem; color:#8ab4ff; margin:0 }
 
     /* HERO */
-    .hero{ background:var(--panel); border-radius:var(--radius); padding:28px; margin-bottom: 38px; text-align:center; line-height:1.65 }
+    .hero{ background:var(--panel); border-radius:var(--radius); padding:28px; margin-bottom: 36px; text-align:center; line-height:1.65 }
 
     /* SEGMENTARE */
-    .segments{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:14px 0 38px}
+    .segments{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:12px 0 36px}
     .badge{
       display:inline-block; padding:6px 10px; border-radius:9999px;
       background:linear-gradient(135deg, var(--brand-2) 0%, var(--brand) 100%);
@@ -55,7 +56,7 @@
     }
 
     /* BENEFITS */
-    .benefits{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin: 46px 0 }
+    .benefits{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin: 44px 0 }
     .benefit{ background:var(--panel); border-radius:var(--radius); padding:20px; border:1px solid #1c2330;
       transition: transform var(--speed-fast) var(--ease), box-shadow var(--speed-fast) var(--ease), border-color var(--speed-fast) var(--ease);
       transform: translateZ(0) }
@@ -65,14 +66,14 @@
     /* DIFFERENTIATOR */
     .differentiator{
       background:linear-gradient(135deg, var(--brand-2) 0%, var(--brand) 100%);
-      padding: 32px; border-radius: var(--radius); color:#fff; text-align:center; margin: 18px 0 44px;
+      padding: 32px; border-radius: var(--radius); color:#fff; text-align:center; margin: 18px 0 42px;
       box-shadow: var(--shadow)
     }
     .differentiator h2{ margin:0 0 8px }
     .differentiator p{ margin:0 }
 
     /* WORKFLOW */
-    .workflow{ margin:44px 0 }
+    .workflow{ margin:42px 0 }
     .workflow h2{ text-align:center; margin:0 0 18px }
     .steps{ display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap:18px }
     .step{ background:var(--panel); padding:20px; border-radius:var(--radius-sm); text-align:center; border:1px solid #1c2330;
@@ -84,7 +85,7 @@
     }
 
     /* SOCIAL PROOF */
-    .social-proof{ background:var(--panel); padding:20px; border-radius:var(--radius); text-align:center; margin: 34px auto; max-width:420px; border:1px solid #1c2330 }
+    .social-proof{ background:var(--panel); padding:20px; border-radius:var(--radius); text-align:center; margin: 32px auto; max-width:420px; border:1px solid #1c2330 }
     .number{ font-size:2.4rem; font-weight:800; color:var(--brand); margin:0; min-height:3rem }
     .number.skeleton{
       display:inline-block; width:120px; height:36px; border-radius:6px;
@@ -125,8 +126,8 @@
     /* Responsive */
     @media (max-width: 760px){
       .container{ padding:28px 16px }
-      header{ margin-bottom:34px }
       .benefits{ gap:14px }
+      header .logo img{ width:140px }
     }
 
     /* Respectă preferința „reduce motion” */
@@ -143,8 +144,13 @@
   <main class="container" id="top" aria-label="Stagiaris – Pagina principală">
     <!-- HEADER -->
     <header role="banner">
-      <h1>Stagiaris – Asistentul juridic inteligent</h1>
-      <p><em>”Din 2004 în sala de judecată. Acum, experiența mea devine AI care lucrează pentru tine.”</em></p>
+      <a class="logo" href="/" aria-label="Stagiaris – acasă">
+        <img src="/logo-transparent.png" alt="Stagiaris" width="160" height="48" decoding="async" fetchpriority="high" />
+      </a>
+      <div>
+        <h1>Stagiaris – Asistentul juridic inteligent</h1>
+        <p><em>Din 2004 în sala de judecată. Acum, experiența devine AI care lucrează pentru tine.</em></p>
+      </div>
     </header>
 
     <!-- HERO -->
@@ -233,7 +239,7 @@
   <footer>
     🔒 Datele tale sunt protejate conform
     <a href="/politica-confidentialitate.html" target="_blank" rel="noopener">GDPR și Politicii de Confidențialitate</a>.
-    Confidențialitatea avocaților și a clienților este prioritară.
+    Confidențialitatea voastră este prioritară.
   </footer>
 
   <script>
